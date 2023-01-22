@@ -1,5 +1,5 @@
 ## next.js 프로젝트 구성 가이드 블로그 
-# https://velog.io/@kim98111/Next.js-프로젝트
+https://velog.io/@kim98111/Next.js-프로젝트
 
 ## 프로젝트 구성
 npx create-react-app [프로젝트명] --template=typescript
@@ -10,13 +10,13 @@ yarn add styled-components
 
 ## Getting Started
 
-# npm run dev
-# or
-# yarn dev
+npm run dev
+or
+yarn dev
 
-# npm build
+npm build
 
-# run url : http://localhost:3000
+run url : http://localhost:3000
 
 # 프로젝트 폴더 구성
 ## pages
