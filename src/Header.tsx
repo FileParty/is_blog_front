@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Head from 'next/head';
-import { Text } from '@/styles/Header.style';
+import { HeaderDiv, Text } from '@/styles/Header.style';
 
 export default function Header() {
     return (
@@ -11,17 +11,17 @@ export default function Header() {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <header>
+        <HeaderDiv>
             <div>
                 <Link href="/">Home</Link>
             </div>
             <div>
-                <Text done={true}>김인술 이력서</Text>
+                <Text done={true}>김인술 개발 블로그</Text>
             </div>
             <div>
-                update 2023.01.03
+                version 0.1
             </div>
-        </header>
+        </HeaderDiv>
         </>
     )
 }
