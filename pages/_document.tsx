@@ -1,7 +1,7 @@
 import Document, { DocumentContext, DocumentInitialProps } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
-// styled component를 먼저 렌더링 시키기 위해 하단 객체로 작성함
+// styled component를 먼저 렌더링 시키기 위해 next Document을 상속받아서 구현함
 
 export default class MyDocument extends Document {
   static async getInitialProps(

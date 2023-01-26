@@ -3,39 +3,29 @@ import Link from 'next/link'
 export default function codingtest01() {
 
     function tail_list(input_list:Array<number>):string {
-
+        // 실제로는 문제에서 원하는건 sort가 아니라, 가짜 난쟁이 두명을 찾는 것 이기에
+        // 그 두 난쟁이값만 뺐을때 100이 되어야한다! -- 2023.01.26
         let tail_values:string = "";
-
-        console.log(input_list);
+        const sum = input_list.reduce((a,b) => a + b, 0);
         for( let i = 0; i<input_list.length; i++ ) {
             for( let j = 0; j<input_list.length; j++ ) {
-                if( input_list[i] < input_list[j] ) {
-                    let domy_val = input_list[i];
-                    input_list[i] = input_list[j];
-                    input_list[j] = domy_val;
+                if( sum - (input_list[i] + input_list[j]) === 100) {
+                    input_list.splice(i, 1);
+                    input_list.splice(j, 1);
                 }
+                // if( input_list[i] < input_list[j] ) {
+                //     let domy_val = input_list[i];
+                //     input_list[i] = input_list[j];
+                //     input_list[j] = domy_val;
+                // }
             }
-        }
 
-        let tail_limit = 0;
-        for( let k = 0; k < input_list.length; k++ ) {
-            if( tail_limit > 100 ) {
-                input_list[k] = -1;
-            } else {
-                tail_limit += input_list[k];
-            }
+
         }
+        input_list.sort((a, b) => a - b); // 오름차순 정렬은 -, 내림차순은 +
         for( let l = 0; l < input_list.length; l++ ) {
-            if( input_list[l] > 0 ) {
-                tail_values += input_list[l] + " ";
-            }
+            tail_values += input_list[l] + " ";
         }
-        console.log(input_list);
-        // input_list.forEach((element, idx) => {
-        //     console.log(element, idx);
-
-        // });
-
         return tail_values;
     }
 
@@ -77,7 +67,10 @@ export default function codingtest01() {
                 출력 예제는 7 8 10 13 19 20 23 이긴한데
                 오름차순 정렬이면 7, 8, 10, 13, '15' , 19, 20, 23 요게 맞지않나?
                 100을 넘지 않는거면 7, 8, 10, 13, 15, 19, 20이 맞을거고...
-                정답이
+                정답이...
+                -----
+                틀렸다..문제의 원인은 가짜 난쟁이 둘을 찾는 것이기에
+                for문 두번 돌리면서 고정값 100에서 가짜 난쟁이 둘인 값만 찾으면 되는 문제였다...
             </div>
         </>
     )

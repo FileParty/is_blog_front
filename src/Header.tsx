@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Head from 'next/head';
-import { HeaderDiv, Text } from '@/styles/Header.style';
+import { HeaderDiv, HeaderDropDown, HeaderMainLink } from '@/styles/Header.style';
 
 export default function Header() {
     return (
@@ -13,10 +13,13 @@ export default function Header() {
         </Head>
         <HeaderDiv>
             <div>
-                <Link href="/">Home</Link>
-            </div>
-            <div>
-                <Text done={true}>김인술 개발 블로그</Text>
+                <HeaderMainLink href="/">김인술 개발 블로그</HeaderMainLink>
+                <HeaderDropDown>
+                    <Link href="/">Home</Link>
+                    <Link href="/">HomeHomeHomeHome</Link>
+                    <Link href="/">Home</Link>
+                </HeaderDropDown>
+                
             </div>
             <div>
                 version 0.1
