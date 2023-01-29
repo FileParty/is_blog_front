@@ -15,3 +15,7 @@ a {
   font-family: Arial, Helvetica, sans-serif;
   color: teal;
 }
+
+ul, li {
+  list-style:none;
+}

@@ -1,8 +1,13 @@
-import Link from 'next/link';
 import Head from 'next/head';
-import { HeaderDiv, HeaderDropDown, HeaderMainLink } from '@/styles/Header.style';
+import { HeaderDiv, HeaderDropDown, HeaderDropDownMenu, HeaderDropDownSubMenu, HeaderMainLink } from '@/styles/Header.style';
+import { useState } from 'react';
 
 export default function Header() {
+
+    const [ isOpen, isOpenStat ] = useState({flag:false, id:-1});
+
+
+
     return (
         <>
         <Head>
@@ -15,11 +20,16 @@ export default function Header() {
             <div>
                 <HeaderMainLink href="/">김인술 개발 블로그</HeaderMainLink>
                 <HeaderDropDown>
-                    <Link href="/">Home</Link>
+                    <HeaderDropDownMenu>Info Menu</HeaderDropDownMenu>
+                    <HeaderDropDownMenu>Coding Test</HeaderDropDownMenu>
+                    <HeaderDropDownMenu>Algorithm</HeaderDropDownMenu>
+                    {/* <Link href="https://github.com/FileParty/is_blog_front">GitHub</Link>
                     <Link href="/">HomeHomeHomeHome</Link>
-                    <Link href="/">Home</Link>
+                    <Link href="/">Home</Link> */}
+                    <HeaderDropDownSubMenu isShow={isOpen.flag}>
+                    <div>test1</div><div>test2</div><div>test3</div>
+                    </HeaderDropDownSubMenu>
                 </HeaderDropDown>
-                
             </div>
             <div>
                 version 0.1
