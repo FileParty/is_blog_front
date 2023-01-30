@@ -1,12 +1,13 @@
 
 
 html, body {
-  margin: 0;
+  min-width: 1280px;
+  margin: 0 auto;
   padding: 0;
 }
 
-html {
-  min-width: 1280px;
+body {
+  position: relative;
 }
 
 a {

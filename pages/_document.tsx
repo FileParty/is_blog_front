@@ -1,4 +1,11 @@
-import Document, { DocumentContext, DocumentInitialProps } from "next/document";
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+  DocumentInitialProps
+} from 'next/document';
 import { ServerStyleSheet } from "styled-components";
 
 // styled component를 먼저 렌더링 시키기 위해 next Document을 상속받아서 구현함
@@ -30,5 +37,17 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+
+  render(): JSX.Element {
+    return (
+      <Html>
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }

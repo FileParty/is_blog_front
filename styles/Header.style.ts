@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styled, { css } from "styled-components"
+import styled, { css, keyframes } from "styled-components"
 
 export const HeaderDiv = styled.div`
   display:flex;
@@ -18,11 +18,28 @@ export const HeaderDiv = styled.div`
   }
 `;
 
+const HeaderMainLinkTranslate = keyframes`
+  0% {
+    transform: translateY(0);
+    color:rgb(187, 250, 255);
+  }
+  50% {
+    transform: translateY(-4px);
+    color:rgb(98, 216, 224);
+  }
+  100% {
+    transform: translateY(0);
+    color:white;
+  }
+`;
+
 export const HeaderMainLink = styled(Link)`
   display: inline-flex;
-  font-size: 26px;
+  font-size: 28px;
   color: white;
-  text-shadow: 4px 4px 4px rgb(0, 0, 0);
+  :hover {
+    animation: ${HeaderMainLinkTranslate} 1s linear infinite;
+  }
 `
 
 export const HeaderDropDown = styled.ul`
@@ -57,7 +74,7 @@ export const HeaderDropDownMenu = styled.li`
   display:inline-flex;
   align-items: center;
   height: 40px;
-  min-width: 75px;
+  min-width: 125px;
   text-align: center;
   justify-content: center;
   font-family: fantasy;
@@ -66,12 +83,14 @@ export const HeaderDropDownMenu = styled.li`
   cursor:pointer;
   padding:0 8px;
   border-right: 1px solid white;
+  letter-spacing: 2px;
   :hover {
-    color: rgb(186, 223, 245);
+    color: rgb(196, 203, 245);
+    text-shadow: 1px 1px 1px white;
   }
 `
 
-export const HeaderDropDownSubMenu = styled.div<{ isShow: boolean }>`
+export const HeaderDropDownMenuList = styled.div<{ isShow: boolean }>`
   display: none;
   flex-direction: column;
   min-width: 75px;
@@ -85,6 +104,4 @@ export const HeaderDropDownSubMenu = styled.div<{ isShow: boolean }>`
     css`
       display: flex;
   `}
-`
-
-
+`;

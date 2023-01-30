@@ -6,6 +6,18 @@ npx create-react-app [프로젝트명] --template=typescript
 typescript / eslint
 # styled Components(css-in-js)
 yarn add styled-components
+# props className did not match warning을 해결하기 위해 설치하였음.
+yarn add -D babel-plugin-styled-components
+
+참고 https://tesseractjh.tistory.com/164
+# nextJs에서 redux 설치 및 적용
+yarn add redux
+yarn add redux-thunk
+yarn add @redux-devtools/extension
+yarn add next-redux-wrapper
+
+참고 https://devkkiri.com/post/59cb38dd-f939-462d-9e7f-afcc338b621f
+참고2(redux 미들웨어) https://react.vlpt.us/redux-middleware/
 
 
 ## Getting Started
