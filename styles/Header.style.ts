@@ -48,60 +48,58 @@ export const HeaderDropDown = styled.ul`
   align-items: center;
   width:auto;
   height:40px;
-  position: relative;
-  border-left: 1px solid white;
   padding:0;
   margin:0 0 0 50px;
-  /* > a {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-width: 60px;
-    height: 35px;
-    border: 1px solid black;
-    padding: 3px;
-    :hover {
-      //background-color: rgb(199, 233, 255);
-      border-color: rgb(199, 233, 255);
-      border-radius: 3px;
-      color:white;
-    }
-  } */
+  > li:first-child {
+    border-left: 1px solid white;
+  }
 `;
 
 export const HeaderDropDownMenu = styled.li`
   display:inline-flex;
   align-items: center;
-  height: 40px;
+  //height: 100%;
   min-width: 125px;
+  position: relative;
   text-align: center;
   justify-content: center;
   font-family: fantasy;
   color: white;
-  font-size: 24px;
+  font-size: 26px;
   cursor:pointer;
   padding:0 8px;
   border-right: 1px solid white;
   letter-spacing: 2px;
-  :hover {
+  h3{
+    font-weight: 200;
+  }
+  h3:hover {
     color: rgb(196, 203, 245);
     text-shadow: 1px 1px 1px white;
   }
+  
 `
 
-export const HeaderDropDownMenuList = styled.div<{ isShow: boolean }>`
-  display: none;
+export const HeaderDropDownMenuList = styled.ul`
+  display: flex;
   flex-direction: column;
-  min-width: 75px;
+  width: 110%;
   min-height: 40px;
-  padding: 5px 0;
-  position: fixed;
-  top:61px;
-  background-color: green;
-  ${ ({isShow}) => 
-    isShow && 
-    css`
-      display: flex;
-  `}
+  padding: 5px;
+  position: absolute;
+  top:75px;
+  li {
+    width:100%;
+    border:1px solid black;
+    font-size: 18px;
+    color: black;
+    padding:5px 0px;
+
+    a {
+      :hover {
+        color: white;
+        text-shadow: 3px 3px 3px black;
+      }
+    }
+  }
 `;

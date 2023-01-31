@@ -1,34 +1,22 @@
 import Head from 'next/head';
 import { HeaderDiv, HeaderDropDown, HeaderDropDownMenu, HeaderDropDownMenuList, HeaderMainLink } from '@/styles/Header.style';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Header() {
 
     // 임시로 헤더 목록을 여기에 하드코딩해놓고, 나중에 API로 요청하는 방식으로 바꿀것
     const dumy_HeaderList = [
-        { menuName: "InfoList", menuList: ["About Me", "development Info"] },
-        { menuName: "Algorithm", menuList: ["test"] },
-        { menuName: "FrontEnd", menuList: ["test", "test23"] },
-        { menuName: "BackEnd", menuList: ["test", "test", "test"] }
+        { menuName: "InfoList", menuList: [ {subMenuNm:"자기소개", subMenuUrl:"/about"}, {subMenuNm:"GitHubLink", subMenuUrl:"https://github.com/FileParty/is_blog_front"} ] },
+        { menuName: "Algorithm", menuList: [ {subMenuNm:"문제목록", subMenuUrl:"/algorithm"} ] },
+        { menuName: "FrontEnd", menuList: [ {subMenuNm:"JavaScript", subMenuUrl:"/front/js"} ] },
+        { menuName: "BackEnd", menuList: [ {subMenuNm:"Java", subMenuUrl:"/back/java"} ] }
     ];
 
-    const [ headerDropDownMenuList, headerDropDownMenuListState ] = useState({menuName: "", menuList: [""]});
+    const [ headerDropDownMenuOpenTarget, headerDropDownMenuOpenTargetState ] = useState(-1);
 
     function changeOpenHeaderDropDownMenu(idx: number) {
-        console.log(idx);
-        console.log(headerDropDownMenuList);
-        if( idx !== -1 ) {
-            const headerDropDownMenuListCopy = {...headerDropDownMenuList};
-            headerDropDownMenuListCopy.menuName = dumy_HeaderList[idx].menuName;
-            headerDropDownMenuListCopy.menuList = dumy_HeaderList[idx].menuList;
-            headerDropDownMenuListState(headerDropDownMenuListCopy);
-        }
-        // if( isOpen.id !== id ) {
-        //     let isOpenCopy = {...isOpen};
-        //     isOpenCopy.flag = flag;
-        //     isOpenCopy.id = id;
-        //     isOpenStat(isOpenCopy);
-        // }
+        headerDropDownMenuOpenTargetState(idx);
     }
 
     return (
@@ -44,13 +32,25 @@ export default function Header() {
                     <HeaderMainLink href="/">김인술의 개발 블로그</HeaderMainLink>
                     <HeaderDropDown>
                         { dumy_HeaderList.map((headerMenu, headerMenuIdx) => {
-                            return <HeaderDropDownMenu key={headerMenu.menuName} onMouseEnter={()=>{changeOpenHeaderDropDownMenu(headerMenuIdx)}}>
-                                {headerMenu.menuName}
+                            return <HeaderDropDownMenu key={headerMenu.menuName} onMouseEnter={()=>{changeOpenHeaderDropDownMenu(headerMenuIdx)}}
+                                onMouseLeave={()=>{changeOpenHeaderDropDownMenu(-1)}}>
+                                <h3>{headerMenu.menuName}</h3>
+                                { headerDropDownMenuOpenTarget !== headerMenuIdx 
+                                    ? <></>
+                                    : <HeaderDropDownMenuList>
+                                            { headerMenu.menuList.map((subMenu) => {
+                                                return <li>
+                                                    <Link href={subMenu.subMenuUrl}>
+                                                        {subMenu.subMenuNm}
+                                                    </Link>
+                                                </li>
+                                            })}
+                                        </HeaderDropDownMenuList>
+                                    }
+                                
                             </HeaderDropDownMenu>
                         })}
-                        <HeaderDropDownMenuList isShow={false}>
-                            <div>test1</div><div>test2</div><div>test3</div>
-                        </HeaderDropDownMenuList>
+                        
                     </HeaderDropDown>
                 </div>
                 <div style={{color:"white"}}>
@@ -58,15 +58,5 @@ export default function Header() {
                 </div>
             </HeaderDiv>
         </>
-    )
-}
-
-
-function HeaderDropDownMenuListComponent() {
-
-    return (
-        <div>
-
-        </div>
     )
 }
