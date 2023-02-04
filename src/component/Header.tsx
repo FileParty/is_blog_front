@@ -8,9 +8,9 @@ export default function Header() {
     // 임시로 헤더 목록을 여기에 하드코딩해놓고, 나중에 API로 요청하는 방식으로 바꿀것
     const dumy_HeaderList = [
         { menuName: "InfoList", menuList: [ {subMenuNm:"자기소개", subMenuUrl:"/about"}, {subMenuNm:"GitHubLink", subMenuUrl:"https://github.com/FileParty/is_blog_front"} ] },
-        { menuName: "Algorithm", menuList: [ {subMenuNm:"문제목록", subMenuUrl:"/algorithm"} ] },
         { menuName: "FrontEnd", menuList: [ {subMenuNm:"JavaScript", subMenuUrl:"/front/js"} ] },
-        { menuName: "BackEnd", menuList: [ {subMenuNm:"Java", subMenuUrl:"/back/java"} ] }
+        { menuName: "BackEnd", menuList: [ {subMenuNm:"Java", subMenuUrl:"/back/java"} ] },
+        { menuName: "Algorithm", menuList: [ {subMenuNm:"문제목록", subMenuUrl:"/algorithm"} ] }
     ];
 
     const [ headerDropDownMenuOpenTarget, headerDropDownMenuOpenTargetState ] = useState(-1);
