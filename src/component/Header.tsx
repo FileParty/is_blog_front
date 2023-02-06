@@ -27,6 +27,7 @@ export default function Header() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <div style={{height:"65px", minWidth:"100vw"}}></div>
             <HeaderDiv>
                 <div>
                     <HeaderMainLink href="/">김인술의 개발 블로그</HeaderMainLink>

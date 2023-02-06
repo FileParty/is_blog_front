@@ -1,17 +1,18 @@
 import Link from "next/link";
-import styled, { css, keyframes } from "styled-components"
+import styled, { keyframes } from "styled-components"
 
 export const HeaderDiv = styled.div`
   display:flex;
-  max-width:100%;
-  min-height:40px;
+  min-width:98.1%;
+  height:65px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  padding:10px 15px;
+  padding:0 15px;
   border-bottom: 1px solid black;
-  position: relative;
+  position: fixed;
+  top:0;
   background-color: rgb(0, 0, 10);
   * {
     vertical-align: middle;
@@ -47,9 +48,10 @@ export const HeaderDropDown = styled.ul`
   flex-direction: row;
   align-items: center;
   width:auto;
-  height:40px;
+  height:50px;
   padding:0;
   margin:0 0 0 50px;
+  position: relative;
   > li:first-child {
     border-left: 1px solid white;
   }
@@ -58,8 +60,8 @@ export const HeaderDropDown = styled.ul`
 export const HeaderDropDownMenu = styled.li`
   display:inline-flex;
   align-items: center;
-  //height: 100%;
   min-width: 125px;
+  height:100%;
   position: relative;
   text-align: center;
   justify-content: center;
@@ -87,19 +89,16 @@ export const HeaderDropDownMenuList = styled.ul`
   min-height: 40px;
   padding: 5px;
   position: absolute;
-  top:75px;
+  top:50px;
   li {
     width:100%;
     border:1px solid black;
     font-size: 18px;
     color: black;
     padding:5px 0px;
-
-    a {
-      :hover {
-        color: white;
-        text-shadow: 3px 3px 3px black;
-      }
+    :hover {
+      color: white;
+      text-shadow: 3px 3px 3px black;
     }
   }
 `;

@@ -11,10 +11,11 @@ export default function Home() {
   return (
     <>
       <main>
-        <div>
+        {/* <div>
           <h3>코딩테스트 문제풀이</h3> <br/>
           <Link href="/codingtest01">코딩테스트01 일곱 난쟁이의 키</Link>
-        </div>
+        </div> */}
+        <div>test!!!!!!!!!!!!</div>
       </main>
     </>
   )
