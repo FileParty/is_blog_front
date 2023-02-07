@@ -72,15 +72,14 @@ export const HeaderDropDownMenu = styled.li`
   padding:0 8px;
   border-right: 1px solid white;
   letter-spacing: 2px;
+  :hover {
+    color: green;
+    text-shadow: 1px 1px 1px rgb(196, 203, 245);
+  }
   h3{
     font-weight: 200;
   }
-  h3:hover {
-    color: rgb(196, 203, 245);
-    text-shadow: 1px 1px 1px white;
-  }
-  
-`
+`;
 
 export const HeaderDropDownMenuList = styled.ul`
   display: flex;
@@ -89,16 +88,17 @@ export const HeaderDropDownMenuList = styled.ul`
   min-height: 40px;
   padding: 5px;
   position: absolute;
-  top:50px;
+  top:51px;
   li {
+    background-color: white;
     width:100%;
     border:1px solid black;
-    font-size: 18px;
-    color: black;
+    font-size: 19px;
     padding:5px 0px;
     :hover {
-      color: white;
-      text-shadow: 3px 3px 3px black;
+      a {
+        color: red !important;
+      }
     }
   }
 `;
